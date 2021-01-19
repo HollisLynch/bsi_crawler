@@ -22,8 +22,6 @@ def find_links():
     html = raw_response.decode("utf-8")
     soup = BeautifulSoup(html, 'html.parser')
 
-    divs = soup.find_all('a')
-
     # Find all the search result divs
     divs = soup.find_all('a')
     for div in divs:
