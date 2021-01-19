@@ -5,6 +5,7 @@ import threading
 def find_links():
     txt = print("Search: ")
     query = input(str())
+    query += "article"
 
     query = query.replace(' ', '+')
 
