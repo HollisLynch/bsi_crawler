@@ -4,7 +4,10 @@ import scrapy
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 import base64
-
+"""
+A network socket is an endpoint of an interprocess communication across a computer network. 
+The Python Standard Library has a module called socket which provides a low-level internet networking interface.
+"""
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     print("Socket successfully created")

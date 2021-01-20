@@ -40,7 +40,6 @@ def find_links():
                 print(h3.get_text())
                 print(div.get('href'))
 
-
 if __name__ == "__main__":
     t = threading.Thread(target=find_links)
     t.start()
