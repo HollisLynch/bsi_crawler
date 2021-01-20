@@ -1,8 +1,10 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import threading
-import random
-
+"""
+Beautiful Soup is a Python library for pulling data out of HTML and XML files. 
+It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree.
+"""
 
 def find_links():
     hobbies = ["rashomon", "hockey", "kurosawa", "david+lynch", "twin+peaks"]
@@ -24,6 +26,7 @@ def find_links():
 
         # Read the response as a utf-8 string
         html = raw_response.decode("utf-8")
+        # parse this page, and extract html code
         soup = BeautifulSoup(html, 'html.parser')
 
         # Find all the search result divs
