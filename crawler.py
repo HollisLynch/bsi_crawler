@@ -1,9 +1,11 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import threading
+import random
 
 def find_links():
-    hobbies = ["rashomon", "hokey", "kurosawa", "david+lynch", "twin+peaks"]
+    hobbies = ["rashomon", "hokey", "kurosawa", "david+lynch", "twin+peaks", "fleetwood+mac"]
+    random.shuffle(hobbies)
 
     for i in hobbies:
         query = i + " article"
