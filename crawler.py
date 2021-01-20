@@ -3,40 +3,37 @@ from bs4 import BeautifulSoup
 import threading
 
 def find_links():
-    txt = print("Search: ")
-    query = input(str())
-    query += "article"
+    hobbies = ["rashomon", "hokey", "kurosawa", "david+lynch", "twin+peaks"]
 
-    query = query.replace(' ', '+')
+    for i in hobbies:
+        query = i + " article"
+        query = query.replace(' ', '+')
 
-    url = f"https://google.com/search?q={query}"
+        url = f"https://google.com/search?q={query}"
 
-    # Perform the request
-    request = urllib.request.Request(url)
+        # Perform the request
+        request = urllib.request.Request(url)
 
-    # Set a normal User Agent header, otherwise Google will block the request.
-    request.add_header('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
-    raw_response = urllib.request.urlopen(request).read()
+        # Set a normal User Agent header, otherwise Google will block the request.
+        request.add_header('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
+        raw_response = urllib.request.urlopen(request).read()
 
-    # Read the repsonse as a utf-8 string
-    html = raw_response.decode("utf-8")
-    soup = BeautifulSoup(html, 'html.parser')
+        # Read the repsonse as a utf-8 string
+        html = raw_response.decode("utf-8")
+        soup = BeautifulSoup(html, 'html.parser')
 
-    divs = soup.find_all('a')
+        divs = soup.find_all('a')
 
-    # Find all the search result divs
-    divs = soup.find_all('a')
-    for div in divs:
-        # Search for a h3 tag
-        results = div.select("h3")
+        # Find all the search result divs
+        divs = soup.find_all('a')
+        for div in divs:
+            # Search for a h3 tag
+            results = div.select("h3")
 
-        # Check if we have found a result
-        if (len(results) >= 1):
-
-            # Print the title
-            h3 = results[0]
-            print(h3.get_text())
-            print(div.get('href'))
+            if (len(results) >= 1):
+                h3 = results[0]
+                print(h3.get_text())
+                print(div.get('href'))
 
 if __name__ == "__main__":
     t = threading.Thread(target=find_links)
