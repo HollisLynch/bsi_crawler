@@ -6,7 +6,7 @@ Authors:
 
     Daryna Kovyrina
 
-Technics:
+Techniques:
 
     Beautiful Soup:
     1. provides a few simple methods and Pythonic idioms for navigating, searching, and modifying a parse tree: a toolkit for dissecting a document and extracting what you need. It doesn't take much code to write an application
